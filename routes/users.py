@@ -9,7 +9,7 @@ from models.users import User, UserBase
 
 router = APIRouter(prefix="/login", tags=["Login"])
 
-@router.post("/")
+@router.post("/", status_code=status.HTTP_200_OK)
 async def login_user(user_email: str,user_password: str, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == user_email, User.password_hash == user_password).first()
     if not user:
