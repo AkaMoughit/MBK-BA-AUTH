@@ -9,7 +9,7 @@ from routes.users import router as user_router
 # Create a FastAPI instance
 app = FastAPI()
 
-# Include user and budget routers
+# Include user routers
 app.include_router(user_router)
 
 # Create tables in the database
