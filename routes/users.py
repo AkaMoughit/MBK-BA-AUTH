@@ -14,4 +14,4 @@ async def login_user(user_email: str,user_password: str, db: Session = Depends(g
     user = db.query(User).filter(User.email == user_email, User.password_hash == user_password).first()
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
-    return user.username
+    return user.user_id
